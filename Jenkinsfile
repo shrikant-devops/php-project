@@ -10,7 +10,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t shrikantdevops/phpprojectv1 .'
+                    sh 'docker build -t shrikantdevops/phpprojectv2 .'
                     sh 'docker images'
                 }
             }
@@ -32,8 +32,8 @@ pipeline {
                     sshagent(['sshkeypair']) {
                         //chnage the private ip in below code
                         // sh "docker run -itd --name My-first-containe2111 -p 8083:80 akshu20791/2febimg:v1"
-                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.5.191 ${dockerrm}"
-                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.5.191 ${dockerCmd}"
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.8.254  ${dockerrm}"
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.8.254  ${dockerCmd}"
                     }
                 }
             }
